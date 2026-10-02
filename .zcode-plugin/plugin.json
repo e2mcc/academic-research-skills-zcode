@@ -1,0 +1,33 @@
+{
+  "name": "academic-research-skills-zcode",
+  "version": "3.22.2",
+  "description": "Contract-audited academic research pipeline for ZCode: research → write → review → revise → finalize. 4 skills, 27 modes, 39 prompt roles, deterministic citation verification gate. ZCode adaptation of academic-research-skills v3.22.2 by Cheng-I Wu (upstream targets Claude Code).",
+  "author": {
+    "name": "e2mcc (ZCode adapter); upstream author: Cheng-I Wu",
+    "url": "https://github.com/e2mcc"
+  },
+  "homepage": "https://github.com/e2mcc/academic-research-skills-zcode",
+  "repository": "https://github.com/e2mcc/academic-research-skills-zcode",
+  "license": "CC-BY-NC-4.0",
+  "keywords": [
+    "academic",
+    "research",
+    "writing",
+    "review",
+    "deep-research",
+    "literature-review",
+    "systematic-review",
+    "peer-review",
+    "scholarly-publishing",
+    "zcode"
+  ],
+  "skills": [
+    "./academic-paper",
+    "./academic-paper-reviewer",
+    "./academic-pipeline",
+    "./deep-research"
+  ],
+  "commands": "./commands",
+  "hooks": "./hooks/hooks.json",
+  "agents": "./agents"
+}

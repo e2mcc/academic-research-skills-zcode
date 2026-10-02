@@ -1,0 +1,33 @@
+{
+  "name": "academic-research-skills-zcode",
+  "owner": {
+    "name": "e2mcc (ZCode adaptation; upstream by Cheng-I Wu / Imbad0202)",
+    "url": "https://github.com/e2mcc"
+  },
+  "description": "Academic Research Skills — contract-audited research, writing, peer review, and pipeline orchestration for ZCode.",
+  "plugins": [
+    {
+      "name": "academic-research-skills-zcode",
+      "source": "./",
+      "version": "3.22.2",
+      "description": "4 skills + 27 modes + Material Passport pipeline: deep-research, academic-paper, academic-paper-reviewer, academic-pipeline.",
+      "displayName": "Academic Research Skills (ZCode)",
+      "displayName_i18n": {
+        "zh-CN": "学术研究技能套件 (ZCode 版)"
+      },
+      "description_i18n": {
+        "zh-CN": "契约审计的学术研究流水线：深度调研 → 论文写作 → 同行评审 → 修订 → 定稿。4 个技能、27 种模式、引用确定性校验闸门。"
+      },
+      "category": "productivity",
+      "license": "CC-BY-NC-4.0",
+      "keywords": [
+        "academic",
+        "research",
+        "writing",
+        "peer-review",
+        "deep-research",
+        "zcode"
+      ]
+    }
+  ]
+}
