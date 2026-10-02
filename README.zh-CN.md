@@ -1,10 +1,10 @@
 # Academic Research Skills — ZCode 适配版
 
 [![Upstream](https://img.shields.io/badge/upstream-academic--research--skills-blue)](https://github.com/Imbad0202/academic-research-skills)
-[![Version](https://img.shields.io/badge/version-3.22.2-blue)](./.zcode-plugin/plugin.json)
+[![Version](https://img.shields.io/badge/version-3.22.3-blue)](./.zcode-plugin/plugin.json)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)](./LICENSE)
 
-**ARS(Academic Research Skills)** 的 [ZCode](https://zcode.ai) 插件适配版,基于上游 Claude Code 插件 [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) v3.22.2 改造,可在 ZCode 插件市场中直接安装。
+**ARS(Academic Research Skills)** 的 [ZCode](https://zcode.ai) 插件适配版,基于上游 Claude Code 插件 [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) 改造,内容同步至上游 main 分支提交 [`9201425`](https://github.com/Imbad0202/academic-research-skills/commit/9201425a8)(2026-10-02,即 v3.22.2 发布线加上其后未发版的修复 #910–#941),可在 ZCode 插件市场中直接安装。
 
 一套契约审计(contract-audited)的学术研究全流程能力:**调研 → 写作 → 诚信检查 → 同行评审 → 修订 → 复审 → 定稿**。
 
@@ -45,7 +45,7 @@
 
 ## 与上游的差异(适配说明)
 
-本仓库在上游 v3.22.2 基础上做了**最小化适配**,技能内容(4 个技能目录、`shared/`、`scripts/`、`docs/`、`examples/`)与上游完全一致,便于后续同步:
+本仓库对上游做了**最小化适配**,技能内容(4 个技能目录、`shared/`、`scripts/`、`docs/`、`examples/`)与上游 main 分支提交 `9201425`(2026-10-02)逐字节一致,便于后续同步:
 
 1. **插件清单**:新增 `.zcode-plugin/plugin.json`(ZCode 原生清单),显式声明 skills / commands / hooks / agents 组件。
 2. **市场清单**:新增仓库根级 `marketplace.json`(ZCode 支持的目录格式),插件以仓库根为源(`source: "./"`)。
@@ -62,6 +62,11 @@
 # 拉取上游最新版本后,将技能相关目录覆盖到本仓库(保留 .zcode-plugin/ 与 marketplace.json)
 # 需同步检查:commands/*.md 与 scripts/announce-ars-loaded.sh 中的技能前缀
 ```
+
+同步记录:
+
+- **2026-10-02(v3.22.3)**:同步上游 main @ `9201425`,补齐 #941(#936:完整性闸门判定 NOT_FOUND 的文献进入 passport 新增的 `excluded_sources[]` 契约,后续写作派发不再引用;C2 内部一致性检查新增摘要与正文比对;独立修订模式声明摘要未再生成)。
+- **2026-10-02(v3.22.2)**:首次适配,基线为上游 main @ `471082d`(含 v3.22.2 及其后 #910–#940)。
 
 ## 署名与许可
 > 注:GitHub 页面侧栏会把许可证显示为 "Other",这是平台限制——GitHub 的自动识别不支持 NonCommercial 系列 CC 许可证(上游仓库同样如此)。本项目的许可证以 [LICENSE](./LICENSE) 文件为准:CC BY-NC 4.0。根据该许可证条款,本演绎版本必须以相同许可证发布,不可更换为 MIT 等宽松许可证(除非获得上游作者授权)。

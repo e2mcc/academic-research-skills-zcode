@@ -9,7 +9,7 @@
     {
       "name": "academic-research-skills-zcode",
       "source": "./",
-      "version": "3.22.2",
+      "version": "3.22.3",
       "description": "4 skills + 27 modes + Material Passport pipeline: deep-research, academic-paper, academic-paper-reviewer, academic-pipeline.",
       "displayName": "Academic Research Skills (ZCode)",
       "displayName_i18n": {
