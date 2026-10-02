@@ -34,5 +34,7 @@ A contract-audited academic research pipeline: **research → write → integrit
 Minimal-diff adaptation of upstream v3.22.2: skill content is byte-identical. Changes: ZCode-native `.zcode-plugin/plugin.json` + root-level `marketplace.json`, skill-reference prefixes renamed to `academic-research-skills-zcode:` in the 16 command files and the session-start announce script, upstream dev-only assets (evals, tests, audits, CI) excluded, upstream `skills/` symlink directory dropped in favor of explicit manifest declarations. Hooks (`SessionStart`, `PreToolUse`) and `${CLAUDE_PLUGIN_ROOT}` are supported by ZCode as-is.
 
 ## Attribution & license
+> Note: GitHub's sidebar shows the license as "Other" — GitHub auto-detection does not support NonCommercial CC licenses (the upstream repo shows the same). The governing license is [LICENSE](./LICENSE): CC BY-NC 4.0. Its terms require this adaptation to carry the same license; switching to MIT etc. would need the upstream author's permission.
+
 
 Upstream author: [Cheng-I Wu (Imbad0202)](https://github.com/Imbad0202). Released under **CC BY-NC 4.0** — see [LICENSE](./LICENSE), [NOTICE.md](./NOTICE.md), [THIRD_PARTY.md](./THIRD_PARTY.md).

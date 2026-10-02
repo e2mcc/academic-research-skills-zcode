@@ -64,6 +64,8 @@
 ```
 
 ## 署名与许可
+> 注:GitHub 页面侧栏会把许可证显示为 "Other",这是平台限制——GitHub 的自动识别不支持 NonCommercial 系列 CC 许可证(上游仓库同样如此)。本项目的许可证以 [LICENSE](./LICENSE) 文件为准:CC BY-NC 4.0。根据该许可证条款,本演绎版本必须以相同许可证发布,不可更换为 MIT 等宽松许可证(除非获得上游作者授权)。
+
 
 - 上游作者:[Cheng-I Wu (Imbad0202)](https://github.com/Imbad0202),原项目见 [academic-research-skills](https://github.com/Imbad0202/academic-research-skills)
 - 许可证:**CC BY-NC 4.0**(署名-非商业性使用),见 [LICENSE](./LICENSE);本适配版同样以 CC BY-NC 4.0 发布
