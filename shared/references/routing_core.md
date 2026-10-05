@@ -6,7 +6,7 @@ A Claude Code session loads the repository's `.claude/CLAUDE.md` only when its w
 
 - `.claude/CLAUDE.md` § Routing Discipline (v3.9.2), for sessions started inside a clone of this repository;
 - `scripts/announce-ars-loaded.sh`, which reads the block from this file at every SessionStart (startup, clear, resume, compaction, fork), so plugin installs have it before any skill loads; after compaction, resume, or a fork its lead-in limits the block to a new request;
-- the `SKILL.md` of every skill (four today), so every install path has it once a skill loads.
+- the `SKILL.md` of every skill (five today), so every install path has it once a skill loads.
 
 `scripts/check_routing_core_sync.py` fails CI when a copy differs from this block by a single byte or a skill's `SKILL.md` lacks it. Change the rules here and copy the block to the carriers in the same commit. The message template, the phase table, and worked examples are in `shared/references/intent_clarification_protocol.md`.
 
@@ -25,6 +25,8 @@ Otherwise, classify the user's input:
 
 3. **Ambiguous intent, no materials** — user provides no artifacts and no clear request:
    → Clarify per `shared/references/intent_clarification_protocol.md`.
+
+**Screening boundary (sr-screener):** a request to screen records the user already has (database exports, pasted abstracts, full-text PDFs) against a review's eligibility criteria, or to build a screening protocol, pilot the screening, adjudicate screening conflicts, audit exclusions, or report the selection counts, routes to `sr-screener`. A request to write a literature review, or to run a systematic review, meta-analysis, or PRISMA report, does not route to `sr-screener`. Screening starts only when the user asks for it: `deep-research` `systematic-review` mode may mention `sr-screener`, but never hands over to it automatically.
 
 **Anti-pattern (caused #133):** Receiving ambiguous cross-phase materials and silently auto-routing to a single-phase agent based on which phase the materials "look closest to." This bypasses orchestrator-level reconciliation and lets the subagent inherit the full ambiguity without independent oversight.
 <!-- routing-core:end -->

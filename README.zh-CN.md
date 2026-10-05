@@ -1,10 +1,10 @@
 # Academic Research Skills — ZCode 适配版
 
 [![Upstream](https://img.shields.io/badge/upstream-academic--research--skills-blue)](https://github.com/Imbad0202/academic-research-skills)
-[![Version](https://img.shields.io/badge/version-3.22.3-blue)](./.zcode-plugin/plugin.json)
+[![Version](https://img.shields.io/badge/version-3.23.0-blue)](./.zcode-plugin/plugin.json)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)](./LICENSE)
 
-**ARS(Academic Research Skills)** 的 [ZCode](https://zcode.ai) 插件适配版,基于上游 Claude Code 插件 [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) 改造,内容同步至上游 main 分支提交 [`9201425`](https://github.com/Imbad0202/academic-research-skills/commit/9201425a8)(2026-10-02,即 v3.22.2 发布线加上其后未发版的修复 #910–#941),可在 ZCode 插件市场中直接安装。
+**ARS(Academic Research Skills)** 的 [ZCode](https://zcode.ai) 插件适配版,基于上游 Claude Code 插件 [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) 改造,内容同步至上游 **v3.23.0** 发布版(main 分支提交 [`6ab4b03`](https://github.com/Imbad0202/academic-research-skills/commit/6ab4b03bf),2026-10-03,新增第五个技能 `sr-screener` 及证据/记录文件强化修复 #942–#952),可在 ZCode 插件市场中直接安装。
 
 一套契约审计(contract-audited)的学术研究全流程能力:**调研 → 写作 → 诚信检查 → 同行评审 → 修订 → 复审 → 定稿**。
 
@@ -22,7 +22,7 @@
 
 将本仓库克隆到本地后,在"添加插件市场"时直接粘贴仓库根目录路径(包含 `marketplace.json` 的目录)即可,后续步骤同上。
 
-## 四个技能
+## 五个技能
 
 | 技能 | 说明 |
 |---|---|
@@ -30,6 +30,7 @@
 | `academic-paper` | 12 个代理角色的论文写作流水线,11 种模式(大纲/撰写/摘要/文献综述/格式转换/引用检查/AI 披露/rebuttal 审计等),支持 6 种论文类型、5 种引用格式、LaTeX/Pandoc/PDF 输出 |
 | `academic-paper-reviewer` | 多视角模拟同行评审:5 席位角色分离评审团(Journal-Fit Reviewer + 3 位同行评审 + 魔鬼代言人),支持完整评审、复审、快速评估、方法论聚焦、评审者校准等模式 |
 | `academic-pipeline` | 端到端编排器:research → write → integrity → review → revise → re-review → finalize 十阶段全流程 |
+| `sr-screener` | 系统性/范围/快速综述的研究筛选(v3.23.0 新增,8 种模式):把计划书转为用户确认的纳入/排除规则,两位盲审 AI 审查者 + 第三位裁决者,固定顺序排除代码、批次可续跑、质量控制(种子研究、kappa/PABAK)、PRISMA 2020 数字、EndNote/Zotero RIS 分组,产出交给 `academic-paper` 的 `literature_corpus[]` |
 
 ## 斜杠命令(16 个)
 
@@ -45,14 +46,14 @@
 
 ## 与上游的差异(适配说明)
 
-本仓库对上游做了**最小化适配**,技能内容(4 个技能目录、`shared/`、`scripts/`、`docs/`、`examples/`)与上游 main 分支提交 `9201425`(2026-10-02)逐字节一致,便于后续同步:
+本仓库对上游做了**最小化适配**,技能内容(5 个技能目录、`shared/`、`scripts/`、`docs/`、`examples/`)与上游 v3.23.0(提交 `6ab4b03`,2026-10-03)逐字节一致——唯一例外是 sr-screener 的 7 处 agent 引用按本插件命名空间改为 `academic-research-skills-zcode:screening_reviewer_agent`,便于后续同步:
 
 1. **插件清单**:新增 `.zcode-plugin/plugin.json`(ZCode 原生清单),显式声明 skills / commands / hooks / agents 组件。
 2. **市场清单**:新增仓库根级 `marketplace.json`(ZCode 支持的目录格式),插件以仓库根为源(`source: "./"`)。
-3. **技能引用前缀**:16 个命令文件与会话启动宣告脚本中的 `academic-research-skills:<skill>` 前缀统一改为 `academic-research-skills-zcode:<skill>`。
+3. **技能引用前缀**:16 个命令文件、会话启动宣告脚本,以及 sr-screener 的 agent 引用(SKILL.md、orchestration/protocol_template 参考、配置模板与示例、根级 `agents/screening_reviewer_agent.md`)中的 `academic-research-skills:<name>` 前缀统一改为 `academic-research-skills-zcode:<name>`。
 4. **排除开发资产**:未收录 `evals/`、`plugin-evals*/`、`tests/`、`audits/`、`.claude/`、`.github/`、`pi/` 等仅用于上游开发/CI 的目录(约 21MB),运行时无引用。
-5. **符号链接移除**:上游 `skills/` 目录(4 个指向根目录技能的符号链接)未收录,ZCode 清单直接声明四个技能目录。
-6. 原版 README 保留为 [README.upstream.zh-CN.md](./README.upstream.zh-CN.md) / [README.upstream.md](./README.upstream.md)(其相对链接均仍有效)。
+5. **符号链接移除**:上游 `skills/` 目录(5 个指向根目录技能的符号链接)未收录,ZCode 清单直接声明五个技能目录。
+6. 原版 README 保留为 [README.upstream.zh-CN.md](./README.upstream.zh-CN.md) / [README.upstream.md](./README.upstream.md)(其相对链接均仍有效;固定在 v3.22.2 切点,不随同步更新,最新版见上游仓库)。
 
 钩子兼容性:上游 `hooks/hooks.json` 使用的 `SessionStart` 与 `PreToolUse` 事件、`${CLAUDE_PLUGIN_ROOT}` 变量均为 ZCode 支持的标准格式,未做改动。
 
@@ -65,6 +66,7 @@
 
 同步记录:
 
+- **2026-10-05(v3.23.0)**:同步上游 v3.23.0(main @ `6ab4b03`)。新增第五个技能 `sr-screener`(#919,由 @erfanz97 贡献):协议驱动的研究筛选,8 种模式(protocol / quick / pilot / ta-screen / ft-screen / adjudicate / audit / report),新增根级插件代理 `screening_reviewer_agent`(共 4 个)。修复:#942 运行记录仅经可信读取访问、#943/#947/#948 checkpoint 证据改由指定文件夹重放、#944 频谱计数、#945/#946 记录解析错误不再引用文件内容、#951 CSV 导出公式中和。适配:sr-screener 的 7 处 agent 引用改为 `academic-research-skills-zcode:` 前缀。
 - **2026-10-02(v3.22.3)**:同步上游 main @ `9201425`,补齐 #941(#936:完整性闸门判定 NOT_FOUND 的文献进入 passport 新增的 `excluded_sources[]` 契约,后续写作派发不再引用;C2 内部一致性检查新增摘要与正文比对;独立修订模式声明摘要未再生成)。
 - **2026-10-02(v3.22.2)**:首次适配,基线为上游 main @ `471082d`(含 v3.22.2 及其后 #910–#940)。
 

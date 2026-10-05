@@ -731,3 +731,7 @@ path = "scripts/test_standing_constraint_entry_schema.py"
 [[pytest]]
 id = "936-excluded-source-entry-schema"
 path = "scripts/test_excluded_source_entry_schema.py"
+
+[[pytest]]
+id = "sr-screener-pipeline"
+path = "scripts/test_sr_screener_pipeline.py"

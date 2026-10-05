@@ -1,10 +1,10 @@
 # Academic Research Skills — ZCode Edition
 
 [![Upstream](https://img.shields.io/badge/upstream-academic--research--skills-blue)](https://github.com/Imbad0202/academic-research-skills)
-[![Version](https://img.shields.io/badge/version-3.22.3-blue)](./.zcode-plugin/plugin.json)
+[![Version](https://img.shields.io/badge/version-3.23.0-blue)](./.zcode-plugin/plugin.json)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)](./LICENSE)
 
-ZCode plugin adaptation of [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) (upstream targets Claude Code), synced to upstream main commit [`9201425`](https://github.com/Imbad0202/academic-research-skills/commit/9201425a8) (2026-10-02) — the v3.22.2 release line plus unreleased fixes #910–#941. Installable from the ZCode plugin marketplace. Full documentation in [README.zh-CN.md](./README.zh-CN.md).
+ZCode plugin adaptation of [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) (upstream targets Claude Code), synced to upstream release **v3.23.0** (main commit [`6ab4b03`](https://github.com/Imbad0202/academic-research-skills/commit/6ab4b03bf), 2026-10-03) — adds the fifth skill `sr-screener` plus evidence/ledger hardening fixes #942–#952. Installable from the ZCode plugin marketplace. Full documentation in [README.zh-CN.md](./README.zh-CN.md).
 
 A contract-audited academic research pipeline: **research → write → integrity check → peer review → revise → re-review → finalize**.
 
@@ -22,6 +22,7 @@ A contract-audited academic research pipeline: **research → write → integrit
 | `academic-paper` | 12-agent paper writing pipeline (11 modes): outline, drafting, abstracts, lit reviews, format conversion, citation checks, AI disclosure, rebuttal audit |
 | `academic-paper-reviewer` | 5-seat role-separated simulated peer review panel with calibration modes |
 | `academic-pipeline` | End-to-end 10-stage orchestrator from research to final paper |
+| `sr-screener` | Protocol-driven study screening for systematic/scoping/rapid reviews (8 modes): two blinded reviewers + adjudicator, ordered exclusion codes, QC (kappa/PABAK), PRISMA 2020 counts, RIS groups, `literature_corpus[]` handoff to `academic-paper` |
 
 16 `/ars-*` slash commands are included (see the Chinese README for the full list).
 
@@ -31,7 +32,7 @@ A contract-audited academic research pipeline: **research → write → integrit
 
 ## Adaptation notes
 
-Minimal-diff adaptation tracking upstream main: skill content is byte-identical to upstream commit `9201425` (2026-10-02). Changes: ZCode-native `.zcode-plugin/plugin.json` + root-level `marketplace.json`, skill-reference prefixes renamed to `academic-research-skills-zcode:` in the 16 command files and the session-start announce script, upstream dev-only assets (evals, tests, audits, CI) excluded, upstream `skills/` symlink directory dropped in favor of explicit manifest declarations. Hooks (`SessionStart`, `PreToolUse`) and `${CLAUDE_PLUGIN_ROOT}` are supported by ZCode as-is.
+Minimal-diff adaptation tracking upstream main: skill content is byte-identical to upstream v3.23.0 (`6ab4b03`, 2026-10-03), except the sr-screener agent references renamed to the `academic-research-skills-zcode:` namespace. Changes: ZCode-native `.zcode-plugin/plugin.json` + root-level `marketplace.json`, skill-reference prefixes renamed to `academic-research-skills-zcode:` in the 16 command files, the session-start announce script, and the sr-screener agent references, upstream dev-only assets (evals, tests, audits, CI) excluded, upstream `skills/` symlink directory dropped in favor of explicit manifest declarations. Hooks (`SessionStart`, `PreToolUse`) and `${CLAUDE_PLUGIN_ROOT}` are supported by ZCode as-is.
 
 ## Attribution & license
 > Note: GitHub's sidebar shows the license as "Other" — GitHub auto-detection does not support NonCommercial CC licenses (the upstream repo shows the same). The governing license is [LICENSE](./LICENSE): CC BY-NC 4.0. Its terms require this adaptation to carry the same license; switching to MIT etc. would need the upstream author's permission.

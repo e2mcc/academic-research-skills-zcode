@@ -30,12 +30,13 @@ See LICENSE file for terms.
 ## ZCode Adaptation (this repository)
 
 This repository is a ZCode plugin adaptation of academic-research-skills by
-Cheng-I Wu (Imbad0202), its tree synced to upstream main commit 9201425
-(2026-10-02; v3.22.2 release line plus unreleased fixes). All skill content is
+Cheng-I Wu (Imbad0202), its tree synced to upstream v3.23.0 (main commit
+6ab4b03, 2026-10-03). All skill content is
 derived from the upstream repository
 <https://github.com/Imbad0202/academic-research-skills> and remains under CC BY-NC 4.0.
 
 Adaptation changes are limited to packaging: a ZCode-native `.zcode-plugin/plugin.json`
 and root-level `marketplace.json`, renamed skill-reference prefixes
-(`academic-research-skills-zcode:` in command files and the session-start announce
-script), and exclusion of upstream development-only assets (evals, tests, audits, CI).
+(`academic-research-skills-zcode:` in command files, the session-start announce
+script, and the sr-screener agent references), and exclusion of upstream
+development-only assets (evals, tests, audits, CI).
