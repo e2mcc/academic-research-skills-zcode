@@ -30,8 +30,8 @@ See LICENSE file for terms.
 ## ZCode Adaptation (this repository)
 
 This repository is a ZCode plugin adaptation of academic-research-skills by
-Cheng-I Wu (Imbad0202), its tree synced to upstream v3.23.0 (main commit
-6ab4b03, 2026-10-03). All skill content is
+Cheng-I Wu (Imbad0202), its tree synced to upstream v3.23.1 (main commit
+cfd081d, 2026-10-16). All skill content is
 derived from the upstream repository
 <https://github.com/Imbad0202/academic-research-skills> and remains under CC BY-NC 4.0.
 

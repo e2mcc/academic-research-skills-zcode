@@ -1,10 +1,10 @@
 # Academic Research Skills — ZCode 适配版
 
 [![Upstream](https://img.shields.io/badge/upstream-academic--research--skills-blue)](https://github.com/Imbad0202/academic-research-skills)
-[![Version](https://img.shields.io/badge/version-3.23.0-blue)](./.zcode-plugin/plugin.json)
+[![Version](https://img.shields.io/badge/version-3.23.1-blue)](./.zcode-plugin/plugin.json)
 [![License: CC BY-NC 4.0](https://img.shields.io/badge/license-CC%20BY--NC%204.0-lightgrey)](./LICENSE)
 
-**ARS(Academic Research Skills)** 的 [ZCode](https://zcode.ai) 插件适配版,基于上游 Claude Code 插件 [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) 改造,内容同步至上游 **v3.23.0** 发布版(main 分支提交 [`6ab4b03`](https://github.com/Imbad0202/academic-research-skills/commit/6ab4b03bf),2026-10-03,新增第五个技能 `sr-screener` 及证据/记录文件强化修复 #942–#952),可在 ZCode 插件市场中直接安装。
+**ARS(Academic Research Skills)** 的 [ZCode](https://zcode.ai) 插件适配版,基于上游 Claude Code 插件 [academic-research-skills](https://github.com/Imbad0202/academic-research-skills) 改造,内容同步至上游 **v3.23.1** 发布版(main 分支提交 [`cfd081d`](https://github.com/Imbad0202/academic-research-skills/commit/cfd081d8f),2026-10-16,补丁版:写入范围守卫修复与覆盖说明、sr-screener 按 RFC 4180 解析 CSV、routing core 收紧 `[direct-mode]` 逃生舱、Gemini 4 Argon 试运行校验模型),可在 ZCode 插件市场中直接安装。
 
 一套契约审计(contract-audited)的学术研究全流程能力:**调研 → 写作 → 诚信检查 → 同行评审 → 修订 → 复审 → 定稿**。
 
@@ -46,7 +46,7 @@
 
 ## 与上游的差异(适配说明)
 
-本仓库对上游做了**最小化适配**,技能内容(5 个技能目录、`shared/`、`scripts/`、`docs/`、`examples/`)与上游 v3.23.0(提交 `6ab4b03`,2026-10-03)逐字节一致——唯一例外是 sr-screener 的 7 处 agent 引用按本插件命名空间改为 `academic-research-skills-zcode:screening_reviewer_agent`,便于后续同步:
+本仓库对上游做了**最小化适配**,技能内容(5 个技能目录、`shared/`、`scripts/`、`docs/`、`examples/`)与上游 v3.23.1(提交 `cfd081d`,2026-10-16)逐字节一致——唯一例外是 sr-screener 的 7 处 agent 引用按本插件命名空间改为 `academic-research-skills-zcode:screening_reviewer_agent`,便于后续同步:
 
 1. **插件清单**:新增 `.zcode-plugin/plugin.json`(ZCode 原生清单),显式声明 skills / commands / hooks / agents 组件。
 2. **市场清单**:新增仓库根级 `marketplace.json`(ZCode 支持的目录格式),插件以仓库根为源(`source: "./"`)。
@@ -66,6 +66,7 @@
 
 同步记录:
 
+- **2026-10-19(v3.23.1)**:同步上游 v3.23.1(main @ `cfd081d`;较 v3.23.1 标签多出的 #984 CHANGELOG 备注与 #985 pi wrapper 修复均属本仓库排除的开发资产,不影响移植内容)。修复:#982 sr-screener 解析 CSV 只嗅探分隔符、引号规则遵循 RFC 4180(#979);#972 写入范围守卫补上插件范围 agent 类型与外来 timeout 二进制两条未检查路径(#970/#971),#973/#974 守卫实际覆盖范围与真实 hook 载荷文档;#961 routing core 明确消息中间出现的 `[direct-mode]` 令牌不是逃生舱(#892);#981 Gemini 4 Argon 列为试运行 Google 校验模型;#963/#978 Windows 路径 lint 修复(as_posix);#965/#977 `exception_reason` 必须为字符串;THIRD_PARTY 收录 md-to-word(#969)。适配:ZCode 打包元数据升至 v3.23.1(plugin.json、marketplace.json、CITATION.cff、README 徽章与同步记录)。
 - **2026-10-05(v3.23.0)**:同步上游 v3.23.0(main @ `6ab4b03`)。新增第五个技能 `sr-screener`(#919,由 @erfanz97 贡献):协议驱动的研究筛选,8 种模式(protocol / quick / pilot / ta-screen / ft-screen / adjudicate / audit / report),新增根级插件代理 `screening_reviewer_agent`(共 4 个)。修复:#942 运行记录仅经可信读取访问、#943/#947/#948 checkpoint 证据改由指定文件夹重放、#944 频谱计数、#945/#946 记录解析错误不再引用文件内容、#951 CSV 导出公式中和。适配:sr-screener 的 7 处 agent 引用改为 `academic-research-skills-zcode:` 前缀。
 - **2026-10-02(v3.22.3)**:同步上游 main @ `9201425`,补齐 #941(#936:完整性闸门判定 NOT_FOUND 的文献进入 passport 新增的 `excluded_sources[]` 契约,后续写作派发不再引用;C2 内部一致性检查新增摘要与正文比对;独立修订模式声明摘要未再生成)。
 - **2026-10-02(v3.22.2)**:首次适配,基线为上游 main @ `471082d`(含 v3.22.2 及其后 #910–#940)。
